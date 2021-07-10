@@ -30,6 +30,7 @@ func TsakStandardSetup(cfg *ZlispConfig, env *Zlisp) {
 	NormalizePackageSetup(cfg, env)
 	FloatPackageSetup(cfg, env)
 	PredictorPackageSetup(cfg, env)
+	MetricPackageSetup(cfg, env)
 }
 
 func TsakCustomSetup(cfg *ZlispConfig, env *Zlisp) {

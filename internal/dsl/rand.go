@@ -65,6 +65,7 @@ func RandPackageSetup(cfg *ZlispConfig, env *Zlisp) {
 			 FloatNorm := randfloatnorm;
 			 Int := randfloatint;
 			 Intn := randintintn;
+			 RandomDraw := floatrandomdraw;
      }
   ))`
 	_, err := env.EvalString(myPkg)

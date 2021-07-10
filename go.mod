@@ -3,7 +3,6 @@ module github.com/vulogov/TSAK-3
 go 1.16
 
 require (
-	github.com/Jeffail/gabs/v2 v2.6.1
 	github.com/common-nighthawk/go-figure v0.0.0-20210622060536-734e95fb86be
 	github.com/edwingeng/deque v0.0.0-20210510083854-82d15ba89fe0
 	github.com/fatih/color v1.10.0 // indirect

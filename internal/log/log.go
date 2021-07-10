@@ -20,5 +20,4 @@ func Init() {
 		log.PrintColors = false
 	}
 	log.Debug("[ TSAK-3 ] console log is configured")
-	InitLogProc()
 }

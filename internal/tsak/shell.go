@@ -75,4 +75,5 @@ func Shell() {
 		line.WriteHistory(f)
 		f.Close()
 	}
+	dsl.CloseEnvironment(cfg, env)
 }

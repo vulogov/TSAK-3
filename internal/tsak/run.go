@@ -53,5 +53,6 @@ func Run() {
 	} else {
 		log.Debug("EvenLoop was not requested")
 	}
+	dsl.CloseEnvironment(cfg, env)
 	signal.ExitRequest()
 }

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"runtime"
 	"runtime/pprof"
 
 	"github.com/glycerine/zygomys/zygo"
@@ -46,11 +47,26 @@ func MakeEnvironment(cfg *zygo.ZlispConfig) (env *zygo.Zlisp) {
 			log.Fatal(err)
 			os.Exit(-1)
 		}
-		defer pprof.StopCPUProfile()
 	}
 	log.Debug("Running standard setup for environment")
 	env.StandardSetup()
 	TsakStandardSetup(cfg, env)
 	TsakCustomSetup(cfg, env)
 	return
+}
+
+func CloseEnvironment(cfg *zygo.ZlispConfig, env *zygo.Zlisp) {
+	log.Debug("[TSAK-3] Closing environment")
+	env.Clear()
+	if cfg.MemProfile != "" {
+		f, err := os.Create(cfg.MemProfile)
+		if err != nil {
+			log.Fatalf("Could not create memory profile: %v", err)
+		}
+		defer f.Close()
+		runtime.GC()
+		if err := pprof.WriteHeapProfile(f); err != nil {
+			log.Fatalf("could not write memory profile: %v", err)
+		}
+	}
 }
