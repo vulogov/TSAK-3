@@ -5,6 +5,7 @@ go 1.16
 require (
 	github.com/common-nighthawk/go-figure v0.0.0-20210622060536-734e95fb86be
 	github.com/edwingeng/deque v0.0.0-20210510083854-82d15ba89fe0
+	github.com/elliotchance/orderedmap v1.4.0
 	github.com/fatih/color v1.10.0 // indirect
 	github.com/glycerine/blake2b v0.0.0-20151022103502-3c8c640cd7be // indirect
 	github.com/glycerine/goconvey v0.0.0-20190410193231-58a59202ab31 // indirect

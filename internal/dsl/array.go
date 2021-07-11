@@ -1,6 +1,8 @@
 package dsl
 
 import (
+	"fmt"
+
 	. "github.com/glycerine/zygomys/zygo"
 )
 
@@ -63,6 +65,25 @@ func ArrayofSomethingToArray(expr Sexp) (res []interface{}) {
 	}
 	res = make([]interface{}, 0)
 	return
+}
+
+func ArrayofSomethingToLispArray(env *Zlisp, arr []interface{}) Sexp {
+	res := &SexpArray{Val: make([]Sexp, 0), Env: env}
+	for _, v := range arr {
+		switch e := v.(type) {
+		case int:
+			res.Val = append(res.Val, &SexpInt{Val: int64(e)})
+		case int64:
+			res.Val = append(res.Val, &SexpInt{Val: int64(e)})
+		case float64:
+			res.Val = append(res.Val, &SexpFloat{Val: float64(e)})
+		case string:
+			res.Val = append(res.Val, &SexpStr{S: string(e)})
+		default:
+			res.Val = append(res.Val, &SexpStr{S: fmt.Sprintf("%v", e)})
+		}
+	}
+	return res
 }
 
 func ArrayofFloatsToLispArray(env *Zlisp, arr []float64) Sexp {

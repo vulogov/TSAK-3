@@ -46,6 +46,7 @@ func TsakBuiltinFunctions() map[string]zygo.ZlispUserFunction {
 		FloatFunctions(),
 		PredictorFunctions(),
 		MetricFunctions(),
+		OrdermapFunctions(),
 	)
 }
 
@@ -62,4 +63,5 @@ func AllEnvInitBeforeCreationOfEnv() {
 	PerceptronSetup()
 	RandomSetup()
 	PredictorSetup()
+	OrderedMapSetup()
 }

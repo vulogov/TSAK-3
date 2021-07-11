@@ -22,3 +22,5 @@ pre:
 	go get -u gonum.org/v1/gonum/...
 	go get github.com/pieterclaerhout/go-formatter@v1.0.4
 	go get github.com/vmihailenco/msgpack
+	go get github.com/elliotchance/orderedmap
+	
